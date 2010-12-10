@@ -1,0 +1,18 @@
+// this bit of complexity is to pull down the main build script from the alclabs maven repository
+// and then apply it.
+configurations { gradleScript }
+repositories { mavenRepo urls: 'http://labs.alcshare.com' }
+dependencies { gradleScript group: 'com.alcshare', name: 'alclabs-gradle', ext: 'gradle', version: '1.0.1' }
+apply from: configurations.gradleScript.resolve().iterator().next()
+
+version = '1.1'
+
+dependencies {
+   compile 'jstl:jstl:1.1.2'
+   compile 'taglibs:standard:1.1.2'
+
+   testCompile 'junit:junit:3.8.1'
+
+   providedCompile 'com.controlj.green:addonsupport-api-addon:1.0.8'
+   providedCompile 'javax.servlet:servlet-api:2.5'
+}
