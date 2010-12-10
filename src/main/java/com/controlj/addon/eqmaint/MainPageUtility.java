@@ -95,12 +95,10 @@ public class MainPageUtility
       data.type = type;
       data.notes = note;
 
-       /*
        try {
            connection.getAuditLogManager().addEntry(getLocation(lookupString), "Adding maintenance note");
        } catch (SystemException e) { } // ignore exceptions and just don't add message
        catch (ActionExecutionException e) { }
-       */
        EqMaintDatabase.getDatabase().addNote(lookupString, data);
    }
 
@@ -123,23 +121,19 @@ public class MainPageUtility
    {
       data.type = type;
       data.notes = note;
-       /*
        try {
            connection.getAuditLogManager().addEntry(getLocation(lookupString), "Editing maintenance note");
        } catch (SystemException e) { } // ignore exceptions and just don't add message
        catch (ActionExecutionException e) { }
-       */
        EqMaintDatabase.getDatabase().editNote(data);
    }
 
    public void deleteNote(String lookupString, long noteId) throws DatabaseException
    {
-       /*
        try {
            connection.getAuditLogManager().addEntry(getLocation(lookupString), "Removing maintenance note");
        } catch (SystemException e) { } // ignore exceptions and just don't add message
        catch (ActionExecutionException e) { }
-       */
        EqMaintDatabase.getDatabase().deleteNote(noteId);
    }
 

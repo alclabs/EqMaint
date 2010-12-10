@@ -13,6 +13,6 @@ dependencies {
 
    testCompile 'junit:junit:3.8.1'
 
-   providedCompile 'com.controlj.green:addonsupport-api-addon:1.0.8'
+   providedCompile 'com.controlj.green:addonsupport-api-addon:1.1.0.+'
    providedCompile 'javax.servlet:servlet-api:2.5'
 }
