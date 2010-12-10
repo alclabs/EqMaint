@@ -2,7 +2,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Stack" %>
-<%@ page import="com.controlj.green.addonsupport.AddOnInfo" %>
 <%@ page import="com.controlj.green.addonsupport.access.util.LocationSort" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -29,7 +28,7 @@
         }
 
         final List<MyData> locs = new ArrayList<MyData>();
-        connection = AddOnInfo.getAddOnInfo().getUserSystemConnection(request);
+        connection = DirectAccess.getDirectAccess().getUserSystemConnection(request);
         connection.runReadAction(new ReadAction()
         {
            private Stack<Location> lastLocs = new Stack<Location>();

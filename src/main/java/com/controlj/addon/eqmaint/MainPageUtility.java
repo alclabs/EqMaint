@@ -12,7 +12,6 @@
 package com.controlj.addon.eqmaint;
 
 import com.controlj.green.addonsupport.access.*;
-import com.controlj.green.addonsupport.AddOnInfo;
 import com.controlj.green.addonsupport.InvalidConnectionRequestException;
 import com.controlj.green.addonsupport.xdatabase.DatabaseException;
 import com.controlj.addon.eqmaint.database.NoteData;
@@ -36,7 +35,7 @@ public class MainPageUtility
    public MainPageUtility(HttpServletRequest request) throws InvalidConnectionRequestException
    {
       this.request = request;
-      connection = AddOnInfo.getAddOnInfo().getUserSystemConnection(request);
+      connection = DirectAccess.getDirectAccess().getUserSystemConnection(request);
    }
 
    public String getParameter(String paramName)

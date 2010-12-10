@@ -13,6 +13,7 @@ package com.controlj.addon.eqmaint.database;
 
 import com.controlj.green.addonsupport.AddOnInfo;
 import com.controlj.green.addonsupport.xdatabase.DatabaseException;
+import com.controlj.green.addonsupport.xdatabase.XDatabase;
 import junit.framework.TestCase;
 
 import java.io.File;
@@ -39,7 +40,7 @@ public class TestEqMaintDatabase extends TestCase
       deleteDerbyDatabaseFiles(addOnInfo);
 
       List<NoteData> notes = Arrays.asList(data1, data2, data3, data4);
-      db = EqMaintDatabase.getDatabaseForTest(addOnInfo.newDatabaseConnectionInfo());
+      db = EqMaintDatabase.getDatabaseForTest(XDatabase.getXDatabase().newDatabaseConnectionInfo());
       try
       {
          for (NoteData note : notes)

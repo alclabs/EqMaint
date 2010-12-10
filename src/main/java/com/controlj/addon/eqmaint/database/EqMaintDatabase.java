@@ -11,7 +11,6 @@
 =============================================================================*/
 package com.controlj.addon.eqmaint.database;
 
-import com.controlj.green.addonsupport.AddOnInfo;
 import com.controlj.green.addonsupport.xdatabase.*;
 import com.controlj.green.addonsupport.xdatabase.type.SQLBool;
 import com.controlj.addon.eqmaint.database.schema.OperatorTable;
@@ -27,7 +26,7 @@ import java.util.*;
 public class EqMaintDatabase extends Database
 {
    /** the singleton instance */
-   private static final EqMaintDatabase instance = new EqMaintDatabase(AddOnInfo.getAddOnInfo().newDatabaseConnectionInfo());
+   private static final EqMaintDatabase instance = new EqMaintDatabase(XDatabase.getXDatabase().newDatabaseConnectionInfo());
 
    /** constant used to define an ID that is not possible to get normally */
    private static final int INVALID_ID = -1;
