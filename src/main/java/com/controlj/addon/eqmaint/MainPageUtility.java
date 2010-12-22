@@ -57,7 +57,7 @@ public class MainPageUtility
 
       return paramValue;
    }
-   
+
    public String getDisplayName(final String lookupString) throws SystemException, ActionExecutionException
    {
       return connection.runReadAction(new ReadActionResult<String>()
@@ -86,7 +86,7 @@ public class MainPageUtility
       {
          return null;
       }
-      
+
       try
       {
          return dateFormatter.parse(dateString);
@@ -105,13 +105,7 @@ public class MainPageUtility
       data.type = type;
       data.notes = note;
 
-       /*
-       try {
-           connection.getAuditLogManager().addEntry(getLocation(lookupString), "Adding maintenance note");
-       } catch (SystemException e) { } // ignore exceptions and just don't add message
-       catch (ActionExecutionException e) { }
-       */
-       EqMaintDatabase.getDatabase().addNote(lookupString, data);
+      EqMaintDatabase.getDatabase().addNote(lookupString, data);
    }
 
    public List<NoteData> getNotes(String lookupString, Date date, String operatorString, String typeString) throws DatabaseException
@@ -129,28 +123,16 @@ public class MainPageUtility
       return null;
    }
 
-   public void editNote(String lookupString, NoteData data, String type, String note) throws DatabaseException
+   public void editNote(NoteData data, String type, String note) throws DatabaseException
    {
       data.type = type;
       data.notes = note;
-       /*
-       try {
-           connection.getAuditLogManager().addEntry(getLocation(lookupString), "Editing maintenance note");
-       } catch (SystemException e) { } // ignore exceptions and just don't add message
-       catch (ActionExecutionException e) { }
-       */
-       EqMaintDatabase.getDatabase().editNote(data);
+      EqMaintDatabase.getDatabase().editNote(data);
    }
 
-   public void deleteNote(String lookupString, long noteId) throws DatabaseException
+   public void deleteNote(long noteId) throws DatabaseException
    {
-       /*
-       try {
-           connection.getAuditLogManager().addEntry(getLocation(lookupString), "Removing maintenance note");
-       } catch (SystemException e) { } // ignore exceptions and just don't add message
-       catch (ActionExecutionException e) { }
-       */
-       EqMaintDatabase.getDatabase().deleteNote(noteId);
+      EqMaintDatabase.getDatabase().deleteNote(noteId);
    }
 
    public List<String> getKnownOperators() throws DatabaseException
