@@ -68,7 +68,7 @@
      if (util.getParameter("add_button") != null && !wasEditing)
         util.addNote(lookupString, operName, new Date(), util.getParameter("add_type"), util.getParameter("add_note"));
      else if (util.getParameter("delete_button") != null)
-        util.deleteNote(Long.parseLong(request.getParameter("noteid")));
+        util.deleteNote(lookupString, Long.parseLong(request.getParameter("noteid")));
 
      // get notes that match the filtering criteria
      List<NoteData> dataList = util.getNotes(lookupString, date, operatorString, typeString);
@@ -93,7 +93,7 @@
         long editingId = Long.parseLong(util.getParameter("editid"));
         NoteData data = util.getNoteWithId(dataList, editingId);
         if (data != null)
-           util.editNote(data, request.getParameter("add_type"), request.getParameter("add_note"));
+           util.editNote(lookupString, data, request.getParameter("add_type"), request.getParameter("add_note"));
      }
 
      // add the known operators and types to their droplists
