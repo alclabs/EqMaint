@@ -1,9 +1,10 @@
 // this bit of complexity is to pull down the main build script from the alclabs maven repository
 // and then apply it.
 configurations { gradleScript }
-repositories { mavenRepo urls: 'http://repo.alcshare.com' }
+repositories { maven { url 'http://repo.alcshare.com' } }
 dependencies { gradleScript group: 'com.alcshare', name: 'alclabs-gradle', ext: 'gradle', version: '1.0.5' }
-apply from: configurations.gradleScript.resolve().iterator().next()
+//apply from: configurations.gradleScript.resolve().iterator().next()
+apply from: file('C:\\Development\\alclabs\\alclabs-gradle\\src\\alclabs-gradle.gradle')
 
 info {
   name = 'Equipment Maintainence'
